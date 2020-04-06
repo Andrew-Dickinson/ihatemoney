@@ -101,6 +101,34 @@
     {% include "display_errors.html" %}
     {{ form.hidden_tag() }}
     {{ input(form.date, class="form-control", inline=True) }}
+    <small class="small text-muted">Repeating every 7 days until 4/25/2020. <a href="#">Cancel Recurrence</a></small>
+
+    <a class="small recurring_bill_hide in collapse show" href=".recurring_bill_hide" data-toggle="collapse" role="button" aria-expanded="true">Make Repeating</a>
+    <div class="form-group recurring_bill_hide collapse">
+        <label for="recurring_bill">Repeating</label>
+        <div id="recurring_bill" class="form-group card card-body bg-light">
+            <div class="form-group row">
+                <label class="col-3" for="repeat_quantity">Every</label>
+                <div class="controls col-4">
+                    <input class="form-control" id="repeat_quantity" name="repeat_quantity" type="text" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: pointer;">
+                </div>
+                <div class="controls col-5">
+                    <select class="form-control custom-select" id="repeat_units" name="repeat_units">
+                        <option value="days">Days</option>
+                        <option value="weeks">Weeks</option>
+                        <option value="months">Months</option>
+                        <option value="years">Years</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-3" for="repeat_until">Until</label>
+                <div class="controls col-9">
+                    <input class="form-control" id="repeat_until" name="repeat_until" type="date">
+                <small id="external_link_description" "="" class="form-text text-muted">The last day to repeat this bill on (inclusive)</small></div>
+            </div>
+        </div>
+    </div>
     {{ input(form.what, inline=True) }}
     {{ input(form.payer, inline=True, class="form-control custom-select") }}
     {{ input(form.amount, inline=True) }}
